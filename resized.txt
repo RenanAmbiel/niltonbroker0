@@ -1,0 +1,2 @@
+for %i in (pic63.jpg) do ffmpeg -i "%i" -vf "scale=1920:" "%~ni_resized.jpg"
+for %i in (pic63.jpg) do ffmpeg -i "%i" -vf "scale=1920:-1" "%~ni_resized.jpg"
