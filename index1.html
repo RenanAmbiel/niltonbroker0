@@ -215,10 +215,16 @@
 						      
 						      <!-- Conteúdo parcialmente escondido -->
 						      <p id="textoSobre" class="texto-curto">
-						        Nossa corretora conta com um agente imobiliário formado em advocacia, especializado em leilões, loteamentos, prédios e kitnets. 
-						        <span id="maisTexto" class="texto-escondido">
-						          Atuamos na regularização documental e trâmites em cartórios, garantindo segurança jurídica e agilidade nas negociações. 
+						        Nossa corretora conta com um agente imobiliário formado em advocacia, especializado em leilões, loteamentos, prédios e kitnets. Atuamos na regularização documental e trâmites em cartórios, garantindo segurança jurídica e agilidade nas negociações. 
 						          Oferecemos soluções completas para compra, venda e administração de imóveis, com foco em atender às necessidades específicas de cada cliente de forma eficiente e transparente.
+						        <span id="maisTexto" class="texto-escondido">
+						          Na nossa corretora, você conta com o suporte de um agente imobiliário formado em Direito, com sólida experiência nas áreas de leilões judiciais e extrajudiciais, regularização de loteamentos, negociação de prédios comerciais e kitnets para renda. Essa formação jurídica nos permite atuar com segurança técnica em cada etapa, oferecendo tranquilidade e respaldo legal a nossos clientes.
+
+								Estamos preparados para conduzir todo o processo de regularização documental, incluindo verificação de matrícula, escritura, averbações e registros em cartório, assegurando que cada transação ocorra de forma rápida, precisa e juridicamente segura.
+
+								Oferecemos um serviço completo de compra, venda e administração de imóveis, com atenção especial às necessidades individuais de cada cliente — seja investidor, comprador final, proprietário ou incorporador. Nosso objetivo é transformar complexidade em clareza, atuando com transparência, agilidade e responsabilidade.Seja para adquirir um imóvel em leilão, legalizar um terreno ou administrar seu patrimônio, somos a ponte entre segurança jurídica e resultados imobiliários concretos.
+
+
 						        </span>
 						      </p>
 
@@ -228,51 +234,7 @@
 						  </div>
 						</div>
 
-		<!-- Portfolio Projects -->
-		<div class="row">
-			<div class="col-lg-12">
-				<h3><a href="imoveis.html">Lançamentos</a> </h3>
-				<a href="imoveis.html"><div class="row">
-					<section id="projects">
-					<ul id="thumbs" class="portfolio"> 
-						<li class="col-lg-3 design" data-id="id-0" data-type="web">
-						<div class="item-thumbs">					 
-						<img src="img/works/1.jpg" alt="">
-						</div>
-						</li> 
-						<!-- Item Project and Filter Name -->
-						<li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
-						<img src="img/works/2.jpg" alt="">
-						</li> 
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/3.jpg" alt="">
-						</li>
-						</li>
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/4.jpg" alt="">
-						</li>
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/5.jpg" alt="">
-						</li>
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/6.jpg" alt="">
-						</li>
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/7.jpg" alt="">
-						</li>
-						<li class="item-thumbs col-lg-3 photography" data-id="id-1" data-type="illustrator">					
-						<img src="img/works/6.jpg" alt="">
-						</li>
-						
-
-						<!-- End Item Project -->
-					</ul>
-					</section>
-				</div>
-				</a>
-				
-			</div>
-		</div>
+		
 		<div class="col-md-6">
 			<div class="block-heading-two">
 				<h3><span>Em desenvolvimento</span></h3>
@@ -512,13 +474,12 @@
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
-<script>
-  const btn = document.getElementById('btnMais');
-  const texto = document.getElementById('textoSobre');
+<script>const btn = document.getElementById('btnMais');
+  const maisTexto = document.getElementById('maisTexto');
 
   btn.addEventListener('click', function () {
-    texto.classList.toggle('expandido');
-    btn.textContent = texto.classList.contains('expandido') ? 'Menos' : 'Mais';
+    maisTexto.classList.toggle('mostrar');
+    btn.textContent = maisTexto.classList.contains('mostrar') ? 'Menos' : 'Mais';
   });
 </script>
 </body>
