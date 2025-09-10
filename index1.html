@@ -207,17 +207,27 @@
 		<h3>A Empresa</h3> <p>Nilton Brokers Imóveis Corretora de Imóveis em parceria com o Grupo Trisul. Atuamos em São Paulo e região, oferecendo imóveis que realizam sonhos, valorizam conquistas e criam espaços ideais para viver bem</p>
 		</div></div>
 		</div></div>
-		</div> 
-		    <div class="row"> 
-							<div class="col-md-12">
-								<div class="about-logo">
-									<h3>Sobre  <span class="color"></span></h3>
-									<p>Nossa corretora conta com um agente imobiliário formado em advocacia, especializado em leilões, loteamentos, prédios e kitnets. Atuamos na regularização documental e trâmites em cartórios, garantindo segurança jurídica e agilidade nas negociações. Oferecemos soluções completas para compra, venda e administração de imóveis, com foco em atender às necessidades específicas de cada cliente de forma eficiente e transparente.</p>
-								<a href="sobre.html" class="btn">Mais</a>  
-								</div>
-								
-							</div>
+		</div> Nossa corretora conta com um agente imobiliário formado em advocacia, especializado em leilões, loteamentos, prédios e kitnets. Atuamos na regularização documental e trâmites em cartórios, garantindo segurança jurídica e agilidade nas negociações. Oferecemos soluções completas para compra, venda e administração de imóveis, com foco em atender às necessidades específicas de cada cliente de forma eficiente e transparente
+		    			<div class="row"> 
+						  <div class="col-md-12">
+						    <div class="about-logo">
+						      <h3>Sobre <span class="color"></span></h3>
+						      
+						      <!-- Conteúdo parcialmente escondido -->
+						      <p id="textoSobre" class="texto-curto">
+						        Nossa corretora conta com um agente imobiliário formado em advocacia, especializado em leilões, loteamentos, prédios e kitnets. 
+						        <span id="maisTexto" class="texto-escondido">
+						          Atuamos na regularização documental e trâmites em cartórios, garantindo segurança jurídica e agilidade nas negociações. 
+						          Oferecemos soluções completas para compra, venda e administração de imóveis, com foco em atender às necessidades específicas de cada cliente de forma eficiente e transparente.
+						        </span>
+						      </p>
+
+						      <!-- Botão para expandir/recolher -->
+						      <a href="javascript:void(0);" id="btnMais" class="btn">Mais</a>  
+						    </div>
+						  </div>
 						</div>
+
 		<!-- Portfolio Projects -->
 		<div class="row">
 			<div class="col-lg-12">
@@ -431,19 +441,15 @@
 					<strong>Nilton Brokers</strong> Jacarei e Sao paulo</p>
 					<p>
 						<i class="icon-phone"></i> <a href="https://wa.me/+55012996139596?text=Olá, tenho interesse nesses imóveis.">(12)996139596</a> <br>
-						<i class="icon-envelope-alt"></i> niltonlpc@gmail.com
 					</p>
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<div class="widget">
-					<h5 class="widgetheading"><a href="sitemap.xml">Mapa do Site</a></h5>
+					<h5 class="widgetheading"><a href="sitemap.xml">Cartorio</a></h5>
 					<ul class="link-list">
 						<li><a href="#">Licenciamento</a></li>
 						<li><a href="#">Regularização</a></li>
-						<li><a href="#">Levantamentos</a></li>
-						<li><a href="#">Politica de Privacidade</a></li>
-						<li><a href="#">Contato</a></li>
 					</ul>
 				</div>
 			</div>
@@ -451,8 +457,8 @@
 				<div class="widget">
 					<h5 class="widgetheading">Buscas Frequentes</h5>
 					<ul class="link-list">
-						<li><a href="#"> Licenciamento Imoveis rurais </a></li>
-						<li><a href="#"> </a><a href="#"></li>  </a><li><a href="#">Georreferenciamento e topografia</a> </li><li><a href="#"> Verificação de matrícula RI</a></li><li><a href="#"> Imoveis a venda Lotes e terrenos </a><li><a href="#"> Kitnet para alugar </a><a href="#"> Aluguel comercial </a></li>
+						<li><a href="#"> Imoveis rurais </a></li>
+						<li><a href="#"> </a><a href="#"></li>  </a><li><a href="#">Georreferenciamento</a>
 					</ul>
 				</div>
 			</div>
@@ -506,5 +512,14 @@
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
+<script>
+  const btn = document.getElementById('btnMais');
+  const texto = document.getElementById('textoSobre');
+
+  btn.addEventListener('click', function () {
+    texto.classList.toggle('expandido');
+    btn.textContent = texto.classList.contains('expandido') ? 'Menos' : 'Mais';
+  });
+</script>
 </body>
 </html>

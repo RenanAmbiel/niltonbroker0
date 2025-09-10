@@ -728,6 +728,10 @@ form#commentform textarea {
 
 #thumbs li {
 	list-style-type: none;
+	border: 1px solid #dcdcdc;
+	/* border-radius: 12px; */
+	background-color: #ffffff;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .item-thumbs {
@@ -1760,3 +1764,4 @@ article.posts:hover figcaption {
 	}
 
 }
+div .
