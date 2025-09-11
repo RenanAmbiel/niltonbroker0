@@ -1780,6 +1780,18 @@ article.posts:hover figcaption {
 @media (max-width: 992px)
  	{
  		.col-lg-3 {
+       	 width: 75%
+    }
+ 	}
+@media (max-width: 742px)
+ 	{
+ 		.col-lg-3 {
+       	 width: 60%
+    }
+ 	}
+ @media (max-width: 600px)
+ 	{
+ 		.col-lg-3 {
        	 width: 40%
     }
  	}
