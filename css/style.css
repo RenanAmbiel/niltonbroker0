@@ -1762,8 +1762,17 @@ article.posts:hover figcaption {
 @media (max-width: 620px)
 {
 	article.posts {
-	  width: 13%;
-	  height: 22%;
+	  width: 12%;
+	  height: 100px;
+	}
+	article.layout {
+	  margin: 0px;
+	  padding: 0px;
+	  border: px solid #dcdcdc;
+	  border-radius: 0px;
+	  background-color: #ffffff;
+	  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	  gap: 0px;
 	}
 
 }
