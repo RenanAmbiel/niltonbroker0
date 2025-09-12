@@ -76,6 +76,11 @@
 <body>
 
   <div class="slide-container" id="slideshow">
+    <div class="slide"><img src="img/Casa_Villa_Branca/pic01.jpg" alt="Slide 1"></div>
+    <div class="slide"><img src="img/Casa_Villa_Branca/pic02.jpg" alt="Slide 2"></div>
+    <div class="slide"><img src="img/Casa_Villa_Branca/pic03.jpg" alt="Slide 3"></div>
+    <div class="slide"><img src="img/Casa_Villa_Branca/pic04.jpg" alt="Slide 4"></div>
+    <div class="slide"><img src="img/Casa_Villa_Branca/pic05.jpg" alt="Slide 5"></div>
     <div class="slide"><img src="img/Casa_Villa_Branca/pic06.jpg" alt="Slide 6"></div>
     <div class="slide"><img src="img/Casa_Villa_Branca/pic07.jpg" alt="Slide 7"></div>
     <div class="slide"><img src="img/Casa_Villa_Branca/pic08.jpg" alt="Slide 8"></div>
@@ -239,10 +244,15 @@
     isDragging = false;
   });
 
-  // Inicializa
+  // (adicione aqui, antes do showSlide)
+  const urlParams = new URLSearchParams(window.location.search);
+  const slideParam = parseInt(urlParams.get('slide'));
+  if (!isNaN(slideParam) && slideParam >= 1 && slideParam <= slides.length) {
+    current = slideParam - 1;
+  }
+
   showSlide(current);
 </script>
-
 
 </body>
 </html>
