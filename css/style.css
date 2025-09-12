@@ -1784,29 +1784,37 @@ article.posts:hover figcaption {
  		.col-lg-3 {
        	 width: 75%
     }
-    ul.portfolio-categ{
-			display: flex;
-			margin:10px 0 30px 0;
-			padding:0;
-			float:left;
-			list-style:none;
-		  	flex-direction: column-reverse;}
+    ul.portfolio-categ {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+	}
+
 	ul.portfolio-categ li {
-	    flex: 1 1 calc(50% - 10px); /* 2 colunas - ajusta conforme quiser */
+	    width: 36.3%; /* Ajuste para 50%, 25% conforme necessário */
 	    box-sizing: border-box;
-	  }
+	}
+
  	}
 @media (max-width: 742px)
  	{
  		.col-lg-3 {
        	 width: 60%
     }
+    ul.portfolio-categ li {
+	    box-sizing: border-box;
+	    width: 60%;
+	  }
+    
  	}
  @media (max-width: 600px)
  	{
  		.col-lg-3 {
-       	 width: 40%
+       	 width: 47%
     }
+   
  	}
   @media (max-width: 400px)
  	{
