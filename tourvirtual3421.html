@@ -216,6 +216,10 @@
   });
 
   // Clique avança (apenas se não estiver arrastando com zoom)
+  container.addEventListener('click', () => {
+    if (!isDragging && scale === 1) nextSlide();
+  });
+
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
@@ -265,31 +269,25 @@ document.addEventListener('mouseup', stopDragging);
 window.addEventListener('blur', stopDragging);
 
 
-// ------ DRAG estilo mapa (touch) + pinch-to-zoom
+// ------ DRAG estilo mapa (touch) + pinch-to-zoom (mantido)
 
-  
-// Clique com mouse
-container.addEventListener('click', e => {
-  if (scale > 1 || isDragging) return; // não troca se estiver em zoom
-  if (e.target.closest('.controls')) return; // ignora clique em botões
-  const x = e.pageX;
-  if (x < window.innerWidth / 2) {
-    prevSlide();
-  } else {
-    nextSlide();
+// ---- SWIPE corrigido ----
+let touchStartX = 0;
+let touchEndX = 0;
+
+container.addEventListener('touchstart', e => {
+  if (e.touches.length === 1 && scale === 1) {
+    touchStartX = e.touches[0].clientX;
   }
-});
+}, { passive: true });
 
-// Toque em celular
 container.addEventListener('touchend', e => {
-  if (scale > 1) return;
-  if (e.changedTouches.length === 1) {
-    const x = e.changedTouches[0].clientX;
-    if (x < window.innerWidth / 2) {
-      prevSlide();
-    } else {
-      nextSlide();
-    }
+  if (scale > 1) return; // não troca slide se estiver com zoom
+  touchEndX = e.changedTouches[0].clientX;
+  const deltaX = touchEndX - touchStartX;
+  if (Math.abs(deltaX) > 50) { // sensibilidade do swipe
+    if (deltaX < 0) nextSlide();
+    else prevSlide();
   }
 });
 

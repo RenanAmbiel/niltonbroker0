@@ -216,6 +216,10 @@
   });
 
   // Clique avança (apenas se não estiver arrastando com zoom)
+  container.addEventListener('click', () => {
+    if (!isDragging && scale === 1) nextSlide();
+  });
+
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
@@ -268,11 +272,10 @@ window.addEventListener('blur', stopDragging);
 // ------ DRAG estilo mapa (touch) + pinch-to-zoom
 
   
-// Clique com mouse
+// Clique ou toque para trocar de slide
 container.addEventListener('click', e => {
   if (scale > 1 || isDragging) return; // não troca se estiver em zoom
-  if (e.target.closest('.controls')) return; // ignora clique em botões
-  const x = e.pageX;
+  const x = e.clientX || (e.touches && e.touches[0].clientX);
   if (x < window.innerWidth / 2) {
     prevSlide();
   } else {
@@ -280,7 +283,7 @@ container.addEventListener('click', e => {
   }
 });
 
-// Toque em celular
+// Também funciona no touch
 container.addEventListener('touchend', e => {
   if (scale > 1) return;
   if (e.changedTouches.length === 1) {

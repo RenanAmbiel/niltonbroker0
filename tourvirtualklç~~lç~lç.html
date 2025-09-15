@@ -216,6 +216,10 @@
   });
 
   // Clique avança (apenas se não estiver arrastando com zoom)
+  container.addEventListener('click', () => {
+    if (!isDragging && scale === 1) nextSlide();
+  });
+
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
