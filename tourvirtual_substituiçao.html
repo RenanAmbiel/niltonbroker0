@@ -233,43 +233,32 @@
     showSlide(current - 1);
   }
 
-  
-// ------ DRAG estilo mapa (mouse)
-container.addEventListener('mousedown', e => {
-  if (scale <= 1) return;
-  isDragging = true;
-  startX = e.clientX;
-  startY = e.clientY;
-  container.style.cursor = 'grabbing';
-  // Evita seleção de texto durante o arraste
-  e.preventDefault();
-});
+  // ------ DRAG estilo mapa (mouse)
+  container.addEventListener('mousedown', e => {
+    if (scale <= 1) return;
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    container.style.cursor = 'grabbing';
+  });
 
-// Escuta o movimento no document para garantir que o arraste continue mesmo fora do container
-document.addEventListener('mousemove', e => {
-  if (!isDragging || scale <= 1) return;
-  const dx = e.clientX - startX;
-  const dy = e.clientY - startY;
-  startX = e.clientX;
-  startY = e.clientY;
-  offsetX += dx / scale;
-  offsetY += dy / scale;
-  updateTransform();
-});
+  container.addEventListener('mousemove', e => {
+    if (!isDragging || scale <= 1) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    startX = e.clientX;
+    startY = e.clientY;
+    offsetX += dx / scale;
+    offsetY += dy / scale;
+    updateTransform();
+  });
 
-function stopDragging() {
-  if (!isDragging) return;
-  isDragging = false;
-  container.style.cursor = scale > 1 ? 'grab' : 'default';
-}
+  container.addEventListener('mouseup', () => {
+    isDragging = false;
+    container.style.cursor = scale > 1 ? 'grab' : 'default';
+  });
 
-// Captura o 'mouseup' mesmo se for fora do container
-document.addEventListener('mouseup', stopDragging);
-// Caso a janela perca foco (ex.: ALT+TAB) também interrompe o arraste
-window.addEventListener('blur', stopDragging);
-
-
-// ------ DRAG estilo mapa (touch) + swipe + pinch-to-zoom
+  // ------ DRAG estilo mapa (touch) + swipe + pinch-to-zoom
   let initialPinchDistance = null;
   let initialScale = 1;
   let touchStartX = 0;
