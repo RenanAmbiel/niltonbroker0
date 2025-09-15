@@ -269,27 +269,69 @@ document.addEventListener('mouseup', stopDragging);
 window.addEventListener('blur', stopDragging);
 
 
-// ------ DRAG estilo mapa (touch) + pinch-to-zoom (mantido)
+// ------ DRAG estilo mapa (touch) + swipe + pinch-to-zoom
+  let initialPinchDistance = null;
+  let initialScale = 1;
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-// ---- SWIPE corrigido ----
-let touchStartX = 0;
-let touchEndX = 0;
+  container.addEventListener('touchstart', e => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isDragging = true;
+    }
 
-container.addEventListener('touchstart', e => {
-  if (e.touches.length === 1 && scale === 1) {
-    touchStartX = e.touches[0].clientX;
+    if (e.touches.length === 2) {
+      isDragging = false;
+      initialPinchDistance = getTouchDistance(e.touches[0], e.touches[1]);
+      initialScale = scale;
+    }
+  }, { passive: false });
+
+  container.addEventListener('touchmove', e => {
+    if (e.touches.length === 1 && scale > 1 && isDragging) {
+      e.preventDefault();
+      const dx = e.touches[0].clientX - startX;
+      const dy = e.touches[0].clientY - startY;
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      offsetX += dx / scale;
+      offsetY += dy / scale;
+      updateTransform();
+    }
+
+    // Pinch to zoom
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const newDistance = getTouchDistance(e.touches[0], e.touches[1]);
+      if (initialPinchDistance) {
+        let pinchScale = newDistance / initialPinchDistance;
+        scale = Math.max(1, Math.min(initialScale * pinchScale, 5));
+        updateTransform();
+      }
+    }
+  }, { passive: false });
+
+  container.addEventListener('touchend', e => {
+    if (e.touches.length === 0 && scale === 1) {
+      touchEndX = startX;
+      const deltaX = touchEndX - touchStartX;
+      if (Math.abs(deltaX) > 50) {
+        if (deltaX < 0) nextSlide();
+        else prevSlide();
+      }
+    }
+    isDragging = false;
+    initialPinchDistance = null;
+  });
+
+  function getTouchDistance(touch1, touch2) {
+    const dx = touch2.clientX - touch1.clientX;
+    const dy = touch2.clientY - touch1.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
   }
-}, { passive: true });
-
-container.addEventListener('touchend', e => {
-  if (scale > 1) return; // não troca slide se estiver com zoom
-  touchEndX = e.changedTouches[0].clientX;
-  const deltaX = touchEndX - touchStartX;
-  if (Math.abs(deltaX) > 50) { // sensibilidade do swipe
-    if (deltaX < 0) nextSlide();
-    else prevSlide();
-  }
-});
 
   // Inicializa
   showSlide(current);
