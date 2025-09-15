@@ -121,6 +121,7 @@
   let startX = 0;
   let startY = 0;
   let isDragging = false;
+  let lastTouchDist = null;
 
   function showSlide(index) {
     const img = getCurrentImg();
@@ -175,10 +176,6 @@
   });
 
   // Clique avança (apenas se não estiver arrastando com zoom)
-  container.addEventListener('click', () => {
-    if (!isDragging && scale === 1) nextSlide();
-  });
-
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight') nextSlide();
     if (e.key === 'ArrowLeft') prevSlide();
@@ -192,63 +189,75 @@
     showSlide(current - 1);
   }
 
-  // ------ DRAG estilo mapa (mouse)
-  container.addEventListener('mousedown', e => {
-    if (scale <= 1) return;
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
-    container.style.cursor = 'grabbing';
-  });
+  
+// ------ DRAG estilo mapa (mouse)
+container.addEventListener('mousedown', e => {
+  if (scale <= 1) return;
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  container.style.cursor = 'grabbing';
+  // Evita seleção de texto durante o arraste
+  e.preventDefault();
+});
 
-  container.addEventListener('mousemove', e => {
-    if (!isDragging || scale <= 1) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-    startX = e.clientX;
-    startY = e.clientY;
-    offsetX += dx / scale;
-    offsetY += dy / scale;
-    updateTransform();
-  });
+// Escuta o movimento no document para garantir que o arraste continue mesmo fora do container
+document.addEventListener('mousemove', e => {
+  if (!isDragging || scale <= 1) return;
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  startX = e.clientX;
+  startY = e.clientY;
+  offsetX += dx / scale;
+  offsetY += dy / scale;
+  updateTransform();
+});
 
-  container.addEventListener('mouseup', () => {
-    isDragging = false;
-    container.style.cursor = scale > 1 ? 'grab' : 'default';
-  });
+function stopDragging() {
+  if (!isDragging) return;
+  isDragging = false;
+  container.style.cursor = scale > 1 ? 'grab' : 'default';
+}
 
-  // ------ DRAG estilo mapa (touch)
-  container.addEventListener('touchstart', e => {
-    if (scale <= 1) return;
-    isDragging = true;
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-  });
+// Captura o 'mouseup' mesmo se for fora do container
+document.addEventListener('mouseup', stopDragging);
+// Caso a janela perca foco (ex.: ALT+TAB) também interrompe o arraste
+window.addEventListener('blur', stopDragging);
 
-  container.addEventListener('touchmove', e => {
-    if (!isDragging || scale <= 1) return;
-    const dx = e.touches[0].clientX - startX;
-    const dy = e.touches[0].clientY - startY;
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-    offsetX += dx / scale;
-    offsetY += dy / scale;
-    updateTransform();
-  });
 
-  container.addEventListener('touchend', () => {
-    isDragging = false;
-  });
+// ------ DRAG estilo mapa (touch) + pinch-to-zoom
 
-  // (adicione aqui, antes do showSlide)
-  const urlParams = new URLSearchParams(window.location.search);
-  const slideParam = parseInt(urlParams.get('slide'));
-  if (!isNaN(slideParam) && slideParam >= 1 && slideParam <= slides.length) {
-    current = slideParam - 1;
+  
+// Clique com mouse
+container.addEventListener('click', e => {
+  if (scale > 1 || isDragging) return; // não troca se estiver em zoom
+  if (e.target.closest('.controls')) return; // ignora clique em botões
+  const x = e.pageX;
+  if (x < window.innerWidth / 2) {
+    prevSlide();
+  } else {
+    nextSlide();
   }
+});
 
+// Toque em celular
+container.addEventListener('touchend', e => {
+  if (scale > 1) return;
+  if (e.changedTouches.length === 1) {
+    const x = e.changedTouches[0].clientX;
+    if (x < window.innerWidth / 2) {
+      prevSlide();
+    } else {
+      nextSlide();
+    }
+  }
+});
+
+  // Inicializa
   showSlide(current);
 </script>
+
+
 
 </body>
 </html>
