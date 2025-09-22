@@ -23,7 +23,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+	}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -142,6 +143,7 @@ input, select, textarea {
 		font-weight: 300;
 		line-height: 1em;
 		margin: 0 0 1em 0;
+		/* justify-content: center; */
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -2953,6 +2955,11 @@ input, select, textarea {
 		white-space: nowrap;
 		width: 10em;
 		z-index: 1;
+		font-size: 2rem;       /* tamanho da seta */
+		color: #333;           /* cor */
+		position: relative;
+		z-index: 10;           /* fica acima do texto */
+		text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* sombra do caractere */
 	}
 
 		.goto-next:before {
@@ -2969,6 +2976,7 @@ input, select, textarea {
 			top: 50%;
 			width: 2em;
 			z-index: 1;
+
 		}
 
 /* Spotlight */
@@ -3116,6 +3124,7 @@ input, select, textarea {
 			left: 0;
 			padding: 5.1em 0 3.1em 0;
 			width: 100%;
+			height: auto;
 		}
 
 		.spotlight.top .content {
@@ -3150,7 +3159,7 @@ input, select, textarea {
 		}
 
 		.spotlight.style2 .content {
-			border-color: #5480f1;
+			border-color: #95794d;
 		}
 
 		.spotlight.style3 .content {
@@ -3481,9 +3490,14 @@ input, select, textarea {
 		    background-image:
 		        linear-gradient(to bottom,
 		            rgba(23, 24, 32, 1) 0%,
-		            rgba(23, 24, 32, 0.9) 70%,
-		            rgba(23, 24, 32, 0.9) 70%,
-		            rgba(23, 24, 32, 0.0) 100%),
+		            rgba(23, 24, 32, 0.9) 30%,
+		            rgba(23, 24, 32, 0.2) 50%,
+		            rgba(23, 24, 32, 0.0) 65%,
+		            rgba(23, 24, 32, 0.0) 80%,
+					rgba(23, 24, 32, 0.5) 90%,
+					rgba(23, 24, 32, 1.2) 97%,
+					rgba(255, 255, 255, 0.3) 99.6%,
+		            rgba(255, 255, 255, 1.0) 100%),
 		        url("images/overlay.png");
 			content: '';
 			display: block;
@@ -3773,7 +3787,7 @@ input, select, textarea {
 					padding: 4.5em 2.5em 2.5em 2.5em !important;
 					position: relative;
 					right: auto !important;
-					text-align: center;
+					text-align: justify;
 					top: auto !important;
 					width: 100% !important;
 				}
@@ -3792,7 +3806,7 @@ input, select, textarea {
 						}
 
 				.spotlight .goto-next {
-					display: none;
+					/* display: none; */
 				}
 
 		/* Wrapper */
@@ -4330,5 +4344,31 @@ input, select, textarea {
     display: block;
     cursor: pointer;
   }
+  @media screen and (max-width: 980px)
+  {
+  	span.image.fit.main
+  	{
+  		height: 60vh;
+  		max-height: 60vh;
+  	}
+
+  	div.content{
+  		height: 40vh;
+		max-height: 40vh;
+
+  	}
+  	img
+    {
+	    width: auto;
+	   	object-fit: cover;
+	    height: 100%;
+	}
+  	}
+  }
+	@media screen and (max-width: 737px)
+	{
+
+	}
+
 
 
