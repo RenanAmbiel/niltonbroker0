@@ -2946,7 +2946,6 @@ input, select, textarea {
 		border: 0;
 		bottom: 0;
 		display: block;
-		height: 5em;
 		left: 50%;
 		margin: 0 0 0 -5em;
 		overflow: hidden;
@@ -4353,8 +4352,8 @@ input, select, textarea {
   	}
 
   	div.content{
-  		height: 40vh;
-		max-height: 40vh;
+  		height: 60vh;
+		max-height: 60vh;
 
   	}
   	img
