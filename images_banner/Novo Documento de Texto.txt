@@ -1,0 +1,1 @@
+for %i in (*.jpeg) do ffmpeg -i "%i" -vf "scale=1024:640" "%~ni_resized.jpg"
