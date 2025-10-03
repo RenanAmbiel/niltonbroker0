@@ -3157,22 +3157,27 @@ input, select, textarea {
 
 		.spotlight.style1 .content {
 			border-color: #e44c65;
+			background-color: #093c54e6;
 		}
 
 		.spotlight.style2 .content {
 			border-color: #95794d;
+			background-color: #bfc65285;
 		}
 
 		.spotlight.style3 .content {
 			border-color: #39c088;
+			background-color: #6a837ff5;
 		}
 
 		.spotlight.style4 .content {
 			border-color: #5d2125;
+			background-color: #000000ab;
 		}
 
 		.spotlight.style5 .content {
 			border-color: #58565b;
+			background-color: #00000087;
 		}
 
 		.spotlight.inactive .content {
@@ -3504,7 +3509,7 @@ input, select, textarea {
 	
 	#banner {
 		background-attachment: fixed;
-		background-image: linear-gradient(180deg, rgb(5 48 68) 0%, /* azul inicial */ rgba(1, 173, 255, 0.75) 30%, /* azul inicial */ rgba(1, 173, 255, 0) 50%, /* transparente */ rgba(255, 0, 0, 0) 55%, /* transparente */ rgba(255, 0, 0, 1.88) 100% /* vermelho final */), url(../../images_banner/pic02.webp);
+		background-image: linear-gradient(180deg, rgb(5 48 68) 0%, /* azul inicial */ rgba(1, 173, 255, 0.75) 30%, /* azul inicial */ rgba(1, 173, 255, 0) 50%, /* transparente */ rgba(255, 0, 0, 0) 87%,  rgba(255, 0, 0, 0) 96%,/* transparente */ rgba(255, 0, 0, 1.88) 100% /* vermelho final */), url(../../images_banner/pic02.webp);
 		background-size: cover;
 		box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.24);
 		min-height: 100vh;
