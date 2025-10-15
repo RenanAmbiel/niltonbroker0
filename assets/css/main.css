@@ -136,7 +136,7 @@ input, select, textarea {
 	p {
 		margin: 0 0 2em 0;
 		color: #ffffff;
-		text-shadow: -9px 14px 10px black;
+		/* text-shadow: 2px 20px 0px black; */
 		font-weight: 500;
 	}
 

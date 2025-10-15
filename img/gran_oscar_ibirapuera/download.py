@@ -28,4 +28,4 @@ def extrair_imagens(pdf_path, pasta_saida):
     print(f"{contador} imagem(ns) extraída(s) para: {pasta_saida}")
 
 # Exemplo de uso
-extrair_imagens("C:/Users/v/Desktop/New folder/docs/GRANOSCAR_MATERIAL PRELIMINAR VENDAS (1)_organized.pdf", "C:/Users/v/Desktop/New folder/img/gran_oscar_ibirapuera")
+extrair_imagens("C:/Users/b/Desktop/New folder/docs/GRANOSCAR_MATERIAL PRELIMINAR VENDAS (1)_organized.pdf", "C:/Users/b/Desktop/New folder/img/gran_oscar_ibirapuera")
