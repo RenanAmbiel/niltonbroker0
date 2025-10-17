@@ -142,7 +142,8 @@
 							  <a href="img/gran_oscar_ibirapuera/pic42.png"><img src="img/gran_oscar_ibirapuera_miniaturas/pic42.webp" alt="Imagem 36"></a>
 							</div>
 							<div id="modal">
-							<img src="" alt="Imagem ampliada" />
+	  						<span class="close-btn">&times;</span>
+								<img src="" alt="Imagem ampliada" />
 							</div>
 						</div>
 
@@ -180,26 +181,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/autohide.js"></script>
-			<script>
-  const modal = document.getElementById('modal');
-  const modalImg = modal.querySelector('img');
-  const links = document.querySelectorAll('.grid-menu a');
-
-  links.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      modal.style.display = 'flex';
-      modalImg.src = this.href;
-    });
-  });
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-      modalImg.src = '';
-    }
-  });
-</script>
+			<script src="assets/js/modal.js"></script>
 
 
 	</body>
