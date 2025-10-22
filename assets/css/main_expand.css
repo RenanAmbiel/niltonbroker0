@@ -156,7 +156,7 @@ input, select, textarea {
 		}
 
 	h2 {
-		font-size: 2em;
+		font-size: 4em;
 		line-height: 1.5em;
 		letter-spacing: -0.025em;
 	}
@@ -889,6 +889,8 @@ input, select, textarea {
 
 			.row > * {
 				padding: 0 0 0 2.5em;
+				overflow: hidden;
+				width: 70vh;
 			}
 
 			.row.gtr-uniform {
@@ -1864,7 +1866,7 @@ input, select, textarea {
 
 				.row {
 					margin-top: 0;
-					margin-left: -2.5em;
+					/* margin-left: -2.5em; */
 				}
 
 					.row > * {
@@ -1918,8 +1920,8 @@ input, select, textarea {
 		@media screen and (max-width: 480px) {
 
 			.row {
-				display: flex;
-				flex-wrap: wrap;
+				/* display: flex; */
+				/* flex-wrap: wrap; */
 				box-sizing: border-box;
 				align-items: stretch;
 			}
@@ -2108,12 +2110,12 @@ input, select, textarea {
 						}
 
 				.row {
-					margin-top: 0;
-					margin-left: -2.5em;
+					/* margin-top: 0; */
+					/* margin-left: auto; */
 				}
 
 					.row > * {
-						padding: 0 0 0 2.5em;
+						/* padding: 0 0 0 2.5em; */
 					}
 
 					.row.gtr-uniform {
