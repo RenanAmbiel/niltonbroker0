@@ -7219,7 +7219,7 @@ input, select, textarea {
         .row {
             margin-top: 0;
             /* margin-left: 0em; */
-            background-color: #000000;
+            background-color: #040408db;
             justify-content: center;
         }
 
@@ -9572,7 +9572,8 @@ input, select, textarea {
 
     .wrapper {
         padding: 6em 0 4em 0;
-        background-color: #5d6769;
+        background-color: #2b535b;
+        background-image: url("../../images_banner/pic02.webp");
     }
 
         .wrapper.style2 {
