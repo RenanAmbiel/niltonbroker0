@@ -3872,31 +3872,7 @@ input, select, textarea {
 				padding: 4.5em 2.5em 2.5em 2.5em;
 			}
 
-		/* Banner */
-
-			#banner {
-				/* background-attachment: scroll; */
-			}
-
-				#banner .goto-next {
-					height: 7em;
-				}
-
-				#banner .content {
-					padding: 9em 0;
-					text-align: center;
-				}
-
-					#banner .content header {
-						display: block;
-						margin: 0 0 2em 0;
-						text-align: center;
-					}
-
-					#banner .content .image {
-						margin: 0;
-					}
-
+		
 		/* Footer */
 
 			#footer {
