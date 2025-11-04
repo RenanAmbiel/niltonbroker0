@@ -3876,6 +3876,7 @@ input, select, textarea {
 
 			#banner {
 				/* background-attachment: scroll; */
+				max-height: 100vh;
 			}
 
 				#banner .goto-next {
@@ -4461,7 +4462,7 @@ input, select, textarea {
   border-radius: 10px;
   margin: 20px 0;
   background-image: url("../../images_banner/projetos.webp");
-  background-size: cover;       /* cobre toda a área */
+  background-size: cover;       /* cobre toda a Ã¡rea */
   background-position: center;  /* centraliza a imagem */
-  background-repeat: no-repeat; /* não repete */
+  background-repeat: no-repeat; /* nÃ£o repete */
 }
