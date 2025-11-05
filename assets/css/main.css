@@ -3876,7 +3876,7 @@ input, select, textarea {
 
 			#banner {
 				/* background-attachment: scroll; */
-				max-height: 100vh;
+				max-height: 90vh
 			}
 
 				#banner .goto-next {
