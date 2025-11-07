@@ -136,6 +136,15 @@
         }
       });
 
-      // Inicializa
+      // Verifica se há um parâmetro ?slide= na URL
+      const params = new URLSearchParams(window.location.search);
+      const slideParam = params.get("slide");
+      if (slideParam) {
+        const index = Array.from(slides).findIndex(s =>
+          s.querySelector("img").src.includes(slideParam)
+        );
+        if (index !== -1) current = index;
+}
+
       showSlide(current);
     
