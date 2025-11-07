@@ -1,7 +1,7 @@
-$(window).load(function() {
-  $('.flexslider').flexslider({
+$(window).load(function () {
+  $(".flexslider").flexslider({
     animation: "slide",
-    slideshowSpeed: 1000,  // tempo entre slides
-    animationSpeed: 600
+    slideshowSpeed: 1000, // tempo entre slides
+    animationSpeed: 600,
   });
 });
