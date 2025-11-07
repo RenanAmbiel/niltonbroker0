@@ -805,8 +805,6 @@ ul.portfolio-categ{
 	padding:0;
 	float:left;
 	list-style:none;
-
-
 }
 
 ul.portfolio-categ li{
@@ -824,9 +822,7 @@ ul.portfolio-categ li a{
 	padding: 8px 20px;
 	color:#353535;
 }
-ul.portfolio-categ li.active{
-border: 1px solid #A71F4A;
-}
+ul.portfolio-categ li.active{border: 1px solid #A71F4A;}
 ul.portfolio-categ li.active a:hover, ul.portfolio-categ li a:hover,ul.portfolio-categ li a:focus,ul.portfolio-categ li a:active {
 	text-decoration:none;
 	outline:0; 
@@ -1792,43 +1788,49 @@ article.posts:hover figcaption {
 @media (max-width: 992px)
  	{
  		.col-lg-3 {
-       	 width: 75%
+       	 /* width: 75%; */
     }
     ul.portfolio-categ {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-	}
+	    display: flex;
+	    /* gap: 10px; */
+	    list-style: none;
+	    padding: 0;
+	    width: 100%;
+	    flex-wrap: wrap;
+	    flex-direction: row;
+	 }
 
 	ul.portfolio-categ li {
-	    width: 36.3%; /* Ajuste para 50%, 25% conforme necessário */
-	    box-sizing: border-box;
+	     width: 47.3%;
+	    /* box-sizing: border-box; */
 	}
 
  	}
 @media (max-width: 742px)
  	{
  		.col-lg-3 {
-       	 width: 60%
+       	 /* width: 60%; */
     }
     ul.portfolio-categ li {
-	    box-sizing: border-box;
-	    width: 60%;
+	    /* box-sizing: border-box; */
+	    width: 47%;
 	  }
     
  	}
  @media (max-width: 600px)
  	{
- 		.col-lg-3 {
-       	 width: 47%
+ 	ul.portfolio-categ li {
+	    /* box-sizing: border-box; */
+	    width: 44%;
+	  }
     }
 
  	}
-  @media (max-width: 400px)
+   @media (max-width: 430px)
  	{
- 		.col-lg-3 {
-       	 width: 24%
+ 	ul.portfolio-categ li {
+	    /* box-sizing: border-box; */
+	    width: 100%;
+	  }
     }
  	}
