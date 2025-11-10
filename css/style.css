@@ -1884,8 +1884,8 @@ article.posts:hover figcaption {
 
 @media (max-width: 620px) {
   article.posts {
-    width: 12%;
-    height: 84px;
+    width: 22%;
+    height: 184px;
   }
 
   article.layout {
