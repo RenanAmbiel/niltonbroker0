@@ -140,8 +140,10 @@
       </div>
 
       <div class="controls">
+        <button class="modal-nav left" aria-label="Anterior" onclick="event.stopPropagation(); prevSlide()">&larr;</button>
         <button onclick="event.stopPropagation(); zoomOut()">−</button>
         <button onclick="event.stopPropagation(); zoomIn()">+</button>
+        <button class="modal-nav right" aria-label="Próximo" onclick="event.stopPropagation(); nextSlide()">&rarr;</button>
       </div>
     </div>
     <script src="assets/js/tourvirtual.js"></script>
