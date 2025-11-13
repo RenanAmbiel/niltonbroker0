@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set count=1
+set count=2
 
 for %%f in (*.jpg) do (
     rem gera o número com dois dígitos
